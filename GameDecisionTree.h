@@ -19,11 +19,11 @@ private:
         if (current->data.leftEventNumber == -1 && current->data.rightEventNumber == -1) {
             return;
         }
-        if (current->data.leftEventNumber != -1) {
+        if (current->data.leftEventNumber != -1 && current->left == nullptr) {
             current->left = um[current->data.leftEventNumber];
             buildTree(um, current->data.leftEventNumber);
         }
-        if (current->data.rightEventNumber != -1) {
+        if (current->data.rightEventNumber != -1 && current->right == nullptr) {
             current->right = um[current->data.rightEventNumber];
             buildTree(um, current->data.rightEventNumber);
         }
@@ -51,11 +51,11 @@ public:
            string word = line.substr(0, index);
            int firstValue = atoi(word.c_str());
            int nextIndex = index + 1;
-           index = line.find(delimiter, index + 1);
-           string secondValue = line.substr(nextIndex, index);
+           index = line.find(delimiter, nextIndex);
+           string secondValue = line.substr(nextIndex, index - nextIndex);
            nextIndex = index + 1;
            index = line.find(delimiter, index + 1);
-           word = line.substr(nextIndex, index);
+           word = line.substr(nextIndex, index - nextIndex);
            int thirdValue = atoi(word.c_str());
            nextIndex = index + 1;
            word = line.substr(nextIndex);
@@ -72,31 +72,41 @@ public:
         for (int i = 0; i < vectorName.size(); ++i) {
             um.insert(make_pair(vectorName[i].eventNumber, new Node<T> (vectorName[i])));
         }
-
+       for (const auto& currentEvent : vectorName) {
+           um[currentEvent.eventNumber] = new Node<T>(currentEvent);
+       }
         root = um[1]; // key value pair 1, not a index of an array.
         buildTree(um, 1);
 
-       /*  while (node != nullptr) { // Start traversing the tree
-          // use atoi
-// concept for building the tree is the picture you took, character read character by character and stringstream start appending it. read it character by character.
-// also you have to know whether to go left or right and no backtracking.
-// havent built it because the story class object isnt there.
-        } */
         /* Debugging passing the delimiter as a parameter instead of hard-coding it. */
     }
 
     // TODO: Function to start the game and traverse the tree based on user input
     void playGame(){
-      ifstream File("story.txt");
-      string instruction;
-      while(getline(File, instruction)) {
-          cout << instruction << endl;
+        Node<T>* currentNode = root;
 
-      }
-       File.close();
+        while (currentNode != nullptr) {
+            cout << currentNode->data.description << endl;
+            // If both left and right children are -1, it's a leaf node
+            if ((currentNode->data.leftEventNumber == -1 && currentNode->data.rightEventNumber == -1)) {
+                break;
+            }
+
+            // Player chooses a path.
+            int path;
+            cout << "Enter path: ";
+           cin >> path;
+
+            if (path == 1)
+                currentNode = currentNode->left;
+             else if (path == 2)
+                currentNode = currentNode->right;
+             else
+                cout << "Error. Try again." << endl;
 
 
-
+        }
+        cout << "Game Over!" << endl;
     }
 };
 
