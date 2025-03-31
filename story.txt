@@ -1,11 +1,21 @@
-1 | You wake up in a cage. There are two paths. | 2 | 3
-2 | You follow the path to the left and encounter a river. | 4 | 5
-3 | You go right and find an old cabin. | 5 | 6
-4 | You swim across the river and find a treasure chest. | -1 | -1
-5 | You find a hidden passageway that leads to a secret room. | 7 | 8
-6 | The cabin is empty. You find a trapdoor leading downwards. | 8 | 9
-7 | Dog | 10 | 11
-8 | 8 | -1 | -1
-9 | 9 | -1 | -1
-10 | 10 | -1 | -1
-11 | 11 | -1 | -1
+1 | Your pet is either: 1. Cat (Go left). 2. Dog (Go right) | 2 | 3
+2 | The cat is either: 1. Selfish (Go left) 2. Friendly (Go right). | 4 | 5
+3 | The dog is either: 1. Friendly (Go left) 2. Not friendly (Go right). | 5 | 6
+4 | Cats are just genetically selfish. | -1 | -1
+5 | Your pet is friendly because 1. Your pet got a lot of massages (Go left) 2. Your pet got a lot of treats (Go right)  | 7 | 8
+6 | Your dog is not friendly because 1. Had a negative environment (Go left) 2. Didn't socialize as a puppy (Go right). | 9 | 10
+7 | Your pet got a current type of nice massage 1. Had the neck message (Go left) 2. Had the belly rub (Go right) | 11 | 12
+8 | Your pet got some nice treats it was either 1. A filet mignon (Go left) 2. A bone (Go right) | 13 | 14
+9 | Your dog's negative environment was 1. Didn't get along with other pet. (Go left). 2. Owner didn't give the dog enough attention (Go right). | 15 | 16
+10 | Your dog didn't socialize as a puppy because the owner didn't let him go outside enough. | -1 | -1
+11 | Your pet's neck was so comfortable it felt 1. So happy (Go left). | 17 | -1
+12 | Your pet was so comfortable in belly rub. It felt 2. Playful (Go right) | -1 | 18
+13 | Your pet ate up one delicious filet mignon in two seconds. | -1 | -1
+14 | Your pet loved the bone because it had 2. Meat on it. (Go right) | -1 | 19
+15 | The dog didn't get along with other pet because the dog wants the whole house which is why he is angry. 2. The dog cries at home (Go right). | -1 | 20
+16 | The dog doesn't get enough love from the owner that is why he is always angry. 2. The dog always barks (Go right).| -1 | 21
+17 | Your pet can't stop smiling. | -1 | -1
+18 | Your dog wants to play, research shows when a dog is playful they're happy! | -1 | -1
+19 | The pet didn't just get a bone but also got to eat some meat which is two treats at once! | -1 | -1
+20 | The dog is crying. | -1 | -1
+21 | The dog is barking at another person. | -1 | -1
